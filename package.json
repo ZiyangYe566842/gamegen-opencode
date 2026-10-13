@@ -1,0 +1,45 @@
+{
+  "name": "gamegen-opencode",
+  "version": "0.10.3",
+  "type": "module",
+  "bin": {
+    "gamegen": "./bin/gamegen.mjs"
+  },
+  "scripts": {
+    "doctor": "node bin/gamegen.mjs doctor",
+    "auth-check": "node bin/gamegen.mjs auth-check",
+    "render-config": "node scripts/render_opencode_config.mjs",
+    "create": "node bin/gamegen.mjs create",
+    "improve": "node bin/gamegen.mjs improve",
+    "qa": "node bin/gamegen.mjs qa",
+    "preview": "node bin/gamegen.mjs preview",
+    "export": "node bin/gamegen.mjs export",
+    "list": "node bin/gamegen.mjs list",
+    "use": "node bin/gamegen.mjs use",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check_syntax.mjs",
+    "demo": "node bin/gamegen.mjs demo",
+    "where": "node bin/gamegen.mjs where"
+  },
+  "dependencies": {
+    "@playwright/test": "1.59.1",
+    "commander": "^14.0.3",
+    "dotenv": "^17.4.2",
+    "fs-extra": "^11.3.5",
+    "openai": "^6.36.0"
+  },
+  "private": true,
+  "description": "OpenCode-powered browser game generation with multimodal references and iterative QA.",
+  "license": "MIT",
+  "author": "Ziyang Ye",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "opencode",
+    "game-generation",
+    "playwright"
+  ]
+}

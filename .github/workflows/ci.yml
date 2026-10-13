@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            templates/base-web-game/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm run check && npm test
+      - run: python3 scripts/check_release.py
+      - run: npm ci
+        working-directory: templates/base-web-game
+      - run: npm run build
+        working-directory: templates/base-web-game
+      - run: npx --no-install playwright install --with-deps chromium
+        working-directory: templates/base-web-game
+      - run: npm test
+        working-directory: templates/base-web-game
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-test-results
+          path: templates/base-web-game/test-results/

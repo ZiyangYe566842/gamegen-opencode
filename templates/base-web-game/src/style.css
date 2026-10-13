@@ -1,0 +1,94 @@
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #f8fbff;
+  background: radial-gradient(
+    circle at top,
+    #1b2a5a 0%,
+    #090b18 55%,
+    #05050a 100%
+  );
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+#app {
+  width: min(96vw, 1100px);
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+#hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border: 1px solid rgba(111, 231, 255, 0.45);
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 34, 75, 0.88),
+    rgba(83, 31, 112, 0.72)
+  );
+  box-shadow:
+    0 0 28px rgba(75, 218, 255, 0.22),
+    inset 0 0 18px rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+.hud-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px rgba(96, 239, 255, 0.85);
+}
+.hud-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 650;
+}
+#game {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 24px;
+  border: 1px solid rgba(130, 245, 255, 0.45);
+  background: #070918;
+  box-shadow:
+    0 24px 90px rgba(0, 0, 0, 0.55),
+    0 0 38px rgba(102, 219, 255, 0.25),
+    inset 0 0 36px rgba(255, 255, 255, 0.04);
+}
+#controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #bdefff;
+}
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: white;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00d4ff, #9b5cff 55%, #ff4ecd);
+  box-shadow: 0 0 22px rgba(155, 92, 255, 0.55);
+  cursor: pointer;
+}
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
